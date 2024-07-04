@@ -9,7 +9,7 @@ const winConditions = [
     [0, 4, 8],
     [2, 4, 6]
 ]
-let options = ["X", "X", "X", "X", "O", "O", "O", "X", "X"]
+let options = ["X", "X", "O", "X", "O", "O", "O", "X", "X"]
 
 function checkWinner() {
     let roundWon = false
@@ -29,7 +29,7 @@ function checkWinner() {
 }
 checkWinner()
 */
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
 function optionTotal(num) {
     const numArrays = num * num
@@ -42,7 +42,7 @@ function optionTotal(num) {
 }
 optionTotal(4)
 */
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
 function winConditions(size) {
     const firstSet = [], secondSet = [], thridSet = [], fourthSet = []
@@ -76,7 +76,7 @@ function winConditions(size) {
 
 const numSkip = (array, skipSize) => {
     const numList = []
-    for (let i = 0; i < array.length; i += skipSize+1) {
+    for (let i = 0; i < array.length; i += skipSize + 1) {
         numList.push(array[i])
     }
     return [numList]
@@ -91,3 +91,53 @@ const numSlice = (array, chunksize) => {
 }
 winConditions(5)
 */
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const winConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+]
+let options = ["X", "X", "O", "O", "O", "O", "X", "O", "X"]
+
+function checkWinner(size) {
+    //let gameWon = false
+    for (let i = 0; i < winConditions.length; i++) {
+        const test = []
+        const condition = winConditions[i]
+        for (let i = 0; i < size; i++) {
+            test.push(options[condition[i]])
+        }
+        console.log(test)
+        if (test.includes("")) {
+            continue
+        } 
+        const allEqual = test => test.every( v => v === test[0] )
+        if (allEqual(test)) {
+            //gameWon = true
+            console.log("WIN")
+            break
+        }
+    }
+}
+checkWinner(3)
+/* function checkWinner() {
+    let roundWon = false
+    for (let i = 0; i < winConditions.length; i++) {
+        const condition = winConditions[i];
+        const cellA = options[condition[0]]
+        const cellB = options[condition[1]]
+        const cellC = options[condition[2]]
+        if (cellA == "" || cellB == "" || cellC == "") {
+            continue
+        } if (cellA == cellB && cellB == cellC) {
+            roundWon = true
+            break
+        }
+    }
+} */
