@@ -1,6 +1,7 @@
 const cells = document.querySelectorAll(".cell")
 const statusText = document.querySelector("#statusText")
 const restartButton = document.querySelector("#restartButton")
+let gameSize = 3
 
 function options(size) {
     const numArrays = size * size
@@ -10,6 +11,7 @@ function options(size) {
     }
     return optionsList
 }
+let option = options(gameSize)
 
 function winConditions(size) {
     const firstSet = [], secondSet = [], fourthSet = []
@@ -31,8 +33,8 @@ function winConditions(size) {
         }
     }
     const fourthCondition = numSkip(fourthSet, size)
-    const winCondition = firstCondition.concat(secondCondition, thridCondition, fourthCondition)
-    return winCondition
+    const winCons= firstCondition.concat(secondCondition, thridCondition, fourthCondition)
+    return winCons
 }
 
 const numSkip = (array, skipSize) => {
@@ -51,8 +53,9 @@ const numSlice = (array, chunkSize) => {
     }
     return numList
 }
+let winCondition = winConditions(gameSize)
 
-/* let currentPlayer = "X"
+let currentPlayer = "X"
 let running = false
 
 startGame()
@@ -66,7 +69,7 @@ function startGame() {
 
 function cellClicked() {
     const cellIndex = this.getAttribute("cellIndex")
-    if (options[cellIndex] != "" || !running) { //do nothing
+    if (option[cellIndex] != "" || !running) { //do nothing
         return
     }
     updateCell(this, cellIndex)
@@ -74,7 +77,7 @@ function cellClicked() {
 }
 
 function updateCell(cell, index) {
-    options[index] = currentPlayer //updating placeholder
+    option[index] = currentPlayer //updating placeholder
     cell.textContent = currentPlayer
 }
 
@@ -88,39 +91,44 @@ function changePlayer() {
 }
 
 function checkWinner() {
-    let roundWon = false
-    for (let i = 0; i < winConditions.length; i++) {
-        const condition = winConditions[i];
-        const cellA = options[condition[0]]
-        const cellB = options[condition[1]]
-        const cellC = options[condition[2]]
-        console.log(cellA, cellB, cellC)
-        if (cellA == "" || cellB == "" || cellC == "") {
+    let gameWon = false
+    for (let i = 0; i < winCondition.length; i++) {
+        let gameSet = []
+        const condition = winCondition[i]
+        for (let i = 0; i < gameSize; i++) {
+            gameSet.push(option[condition[i]])
+        }
+        if (gameSet.includes("")) {
             continue
-        } if (cellA == cellB && cellB == cellC) {
-            roundWon = true
+        } 
+        const allEqual = gameSet => gameSet.every(v => v === gameSet[0])
+        if (allEqual(gameSet)) {
+            gameWon = true
             break
         }
     }
-    if (roundWon) {
+
+    if (gameWon) {
         statusText.textContent = (`${currentPlayer} WIN!`)
-    } else if (!options.includes("")) {
+        running = false;
+    } else if (!option.includes("")) {
         statusText.textContent = (`DRAW!`)
+        running = false
     } else {
         changePlayer()
     }
 }
 
-function restartGame() {
+ function restartGame() {
     currentPlayer = "X"
-    options = ["", "", "", "", "", "", "", "", ""]
+    option = options(gameSize)
     statusText.textContent = (`${currentPlayer}'s turn`)
     cells.forEach(cell => cell.textContent = "")
     running = true
 }
- */ 
 
-module.exports = {
+
+/* module.exports = {
     options,
     winConditions
-}
+} */

@@ -51,7 +51,7 @@ optionTotal(4) */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function winConditions(size) {
+/* function winConditions(size) {
     const firstSet = [], secondSet = [], thridSet = [], fourthSet = []
     const lengthArray = size * size
     for (let i = 0; i < lengthArray; i++) {
@@ -75,7 +75,7 @@ function winConditions(size) {
     }
     const fourthCondition = numSkip(fourthSet, size)
     const winCondition = firstCondition.concat(secondCondition, thridCondition, fourthCondition)
-    //console.log(winCondition)
+    console.log(winCondition)
     //return winCondition
 }
 
@@ -84,7 +84,7 @@ const numSkip = (array, skipSize) => {
     for (let i = 0; i < array.length; i += skipSize + 1) {
         numList.push(array[i])
     }
-    return numList
+    return [numList]
 }
 
 const numSlice = (array, chunksize) => {
@@ -94,6 +94,7 @@ const numSlice = (array, chunksize) => {
     }
     return numList
 }
+winConditions(7) */
 ///////
 /* const numSlice = (array, chunkSize) => {
     const numList = []
@@ -102,13 +103,12 @@ const numSlice = (array, chunksize) => {
         numList.push(copyArray.splice(0, chunkSize));
     }
     return numList
-} */
+}*/
 //////
-//winConditions(3)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* const winConditions = [
+const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -121,7 +121,7 @@ const numSlice = (array, chunksize) => {
 let options = ["X", "X", "O", "O", "O", "O", "X", "O", "X"]
 
 function checkWinner(size) {
-    //let gameWon = false
+    let gameWon = false
     for (let i = 0; i < winConditions.length; i++) {
         const test = []
         const condition = winConditions[i]
@@ -134,13 +134,13 @@ function checkWinner(size) {
         } 
         const allEqual = test => test.every( v => v === test[0] )
         if (allEqual(test)) {
-            //gameWon = true
-            console.log("WIN")
+            gameWon = true
+            console.log('win')
             break
         }
     }
 }
-checkWinner(3) */
+checkWinner(3)
 /* function checkWinner() {
     let roundWon = false
     for (let i = 0; i < winConditions.length; i++) {
@@ -157,6 +157,14 @@ checkWinner(3) */
     }
 } */
 
-    module.exports = {
-        numSkip
-    }
+/* function restartGame(){
+    currentPlayer = "X";
+    options = ["", "", "", "", "", "", "", "", ""];
+    statusText.textContent = `${currentPlayer}'s turn`;
+    cells.forEach(cell => cell.textContent = "");
+    running = true;
+} */
+
+/* module.exports = {
+    numSkip
+} */
