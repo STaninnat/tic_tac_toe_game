@@ -4,12 +4,16 @@
   "description": "Project for job application",
   "main": "script.js",
   "scripts": {
-    "start": "script.js",
+    "start": "node script.js",
     "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "dependencies": {
+    "jsdom": "^24.1.0"
   }
 }

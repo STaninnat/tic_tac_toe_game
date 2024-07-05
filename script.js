@@ -2,20 +2,57 @@ const cells = document.querySelectorAll(".cell")
 const statusText = document.querySelector("#statusText")
 const restartButton = document.querySelector("#restartButton")
 
-// win conditions 3x3
-const winConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-]
+function options(size) {
+    const numArrays = size * size
+    const optionsList = []
+    for (let i = 0; i < numArrays; i++) {
+        optionsList.push("")
+    }
+    return optionsList
+}
 
-let options = ["", "", "", "", "", "", "", "", ""]
-let currentPlayer = "X"
+function winConditions(size) {
+    const firstSet = [], secondSet = [], fourthSet = []
+    const lengthArray = size * size
+    for (let i = 0; i < lengthArray; i++) {
+        firstSet.push(i)
+    }
+    const firstCondition = numSlice(firstSet, size)
+    for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+            secondSet.push(firstCondition[j][i])
+        }
+    }
+    const secondCondition = numSlice(secondSet, size)
+    const thridCondition = numSkip(firstSet, size)
+    for (let ele of firstCondition) {
+        for (let i = (size - 1); i >= 0; i--) {
+            fourthSet.push(ele[i])
+        }
+    }
+    const fourthCondition = numSkip(fourthSet, size)
+    const winCondition = firstCondition.concat(secondCondition, thridCondition, fourthCondition)
+    return winCondition
+}
+
+const numSkip = (array, skipSize) => {
+    const numList = []
+    for (let i = 0; i < array.length; i += skipSize + 1) {
+        numList.push(array[i])
+    }
+    return [numList]
+}
+
+const numSlice = (array, chunkSize) => {
+    const numList = []
+    const copyArray = Array.from(array)
+    while (copyArray.length > 0) {
+        numList.push(copyArray.splice(0, chunkSize));
+    }
+    return numList
+}
+
+/* let currentPlayer = "X"
 let running = false
 
 startGame()
@@ -81,6 +118,9 @@ function restartGame() {
     cells.forEach(cell => cell.textContent = "")
     running = true
 }
+ */ 
 
-module.exports = { 
+module.exports = {
+    options,
+    winConditions
 }

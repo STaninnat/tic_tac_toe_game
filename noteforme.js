@@ -9,7 +9,7 @@ const winConditions = [
     [0, 4, 8],
     [2, 4, 6]
 ]
-let options = ["X", "X", "O", "X", "O", "O", "O", "X", "X"]
+let options = ["", "", "", "", "", "", "", "", ""]
 
 function checkWinner() {
     let roundWon = false
@@ -26,24 +26,31 @@ function checkWinner() {
             break
         }
     }
+    if (roundWon) {
+        statusText.textContent = (`${currentPlayer} WIN!`)
+    } else if (!options.includes("")) {
+        statusText.textContent = (`DRAW!`)
+    } else {
+        changePlayer()
+    }
 }
 checkWinner()
 */
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-function optionTotal(num) {
-    const numArrays = num * num
-    const options = []
+
+/* function options(size) {
+    const numArrays = size * size
+    const optionsList = []
     for (let i = 0; i < numArrays; i++) {
-        options.push("")
+        optionsList.push("")
     }
     //console.log(options)
-    return options
+    return optionsList
 }
-optionTotal(4)
-*/
+optionTotal(4) */
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
+
 function winConditions(size) {
     const firstSet = [], secondSet = [], thridSet = [], fourthSet = []
     const lengthArray = size * size
@@ -51,18 +58,16 @@ function winConditions(size) {
        firstSet.push(i)
     }
     const firstCondition = numSlice(firstSet, size)
+    //console.log(firstCondition)
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
             secondSet.push(firstCondition[j][i])
         }
     }
     const secondCondition = numSlice(secondSet, size)
-    for (let ele of firstCondition) {
-        for (let i = 0; i < size; i++) {
-            thridSet.push(ele[i])
-        } 
-    }
-    const thridCondition = numSkip(thridSet, size)
+    //console.log(secondCondition)
+    const thridCondition = numSkip(firstSet, size)
+    //console.log(thridCondition)
     for (let ele of firstCondition) {
         for (let i = (size - 1); i >= 0; i--) {
             fourthSet.push(ele[i])
@@ -71,7 +76,7 @@ function winConditions(size) {
     const fourthCondition = numSkip(fourthSet, size)
     const winCondition = firstCondition.concat(secondCondition, thridCondition, fourthCondition)
     //console.log(winCondition)
-    return winCondition
+    //return winCondition
 }
 
 const numSkip = (array, skipSize) => {
@@ -79,7 +84,7 @@ const numSkip = (array, skipSize) => {
     for (let i = 0; i < array.length; i += skipSize + 1) {
         numList.push(array[i])
     }
-    return [numList]
+    return numList
 }
 
 const numSlice = (array, chunksize) => {
@@ -89,11 +94,21 @@ const numSlice = (array, chunksize) => {
     }
     return numList
 }
-winConditions(5)
-*/
+///////
+/* const numSlice = (array, chunkSize) => {
+    const numList = []
+    const copyArray = Array.from(array)
+    while (copyArray.length > 0) {
+        numList.push(copyArray.splice(0, chunkSize));
+    }
+    return numList
+} */
+//////
+//winConditions(3)
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const winConditions = [
+/* const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -125,7 +140,7 @@ function checkWinner(size) {
         }
     }
 }
-checkWinner(3)
+checkWinner(3) */
 /* function checkWinner() {
     let roundWon = false
     for (let i = 0; i < winConditions.length; i++) {
@@ -141,3 +156,7 @@ checkWinner(3)
         }
     }
 } */
+
+    module.exports = {
+        numSkip
+    }
