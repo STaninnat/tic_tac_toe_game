@@ -12,7 +12,7 @@ function options(size) {
     return optionsList
 }
 let option = options(gameSize)
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 function winConditions(size) {
     const firstSet = [], secondSet = [], fourthSet = []
     const lengthArray = size * size
@@ -54,6 +54,7 @@ const numSlice = (array, chunkSize) => {
     return numList
 }
 let winCondition = winConditions(gameSize)
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let currentPlayer = "X"
 let running = false
