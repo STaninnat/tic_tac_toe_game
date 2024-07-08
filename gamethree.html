@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/49a1e661e6.js" crossorigin="anonymous"></script>
     <title>Tic Tac Toe Game</title>
     <link rel="stylesheet" href="style.css">
+    <script>localStorage.setItem('gameSize', 3);</script>
 </head>
 <body>
     <div class="header">
-        <h1>Tic Tac Toe Game</h1>
+        <h1>Tic Tac Toe Game 3x3</h1>
     </div>
     <div id="container">
-        <div id="cellContainer">
+        <div id="cellContainerforthree">
             <div cellIndex="0" class="cell"></div>
             <div cellIndex="1" class="cell"></div>
             <div cellIndex="2" class="cell"></div>
@@ -22,10 +24,17 @@
             <div cellIndex="7" class="cell"></div>
             <div cellIndex="8" class="cell"></div>
         </div>
-        <h3 id="rule"></h3>
+        <h3 id="ruleText"></h3>
         <h2 id="statusText"></h2>
         <button id="restartButton">Restart</button>
     </div>
-    <script src="script.js"></script>
-    </body>
+    <div class="footer">
+        <div class="homeicon">
+            <a href="./index.html">
+                <i class="fa-solid fa-house fa-4x" id="homeButton"></i>
+            </a>
+        </div>
+    </div>
+    <script src="./script.js" drr></script>
+</body>
 </html>

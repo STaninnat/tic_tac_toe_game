@@ -5,27 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe Game</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="header">
         <h1>Tic Tac Toe Game</h1>
     </div>
-    <div id="container">
-        <div id="cellContainer">
-            <div cellIndex="0" class="cell"></div>
-            <div cellIndex="1" class="cell"></div>
-            <div cellIndex="2" class="cell"></div>
-            <div cellIndex="3" class="cell"></div>
-            <div cellIndex="4" class="cell"></div>
-            <div cellIndex="5" class="cell"></div>
-            <div cellIndex="6" class="cell"></div>
-            <div cellIndex="7" class="cell"></div>
-            <div cellIndex="8" class="cell"></div>
-        </div>
-        <h3 id="rule"></h3>
-        <h2 id="statusText"></h2>
-        <button id="restartButton">Restart</button>
+    <p id="toggled"></p>
+    <div class="homebtnContainer">
+        <button class="homebtn" id="btn3">
+            <a href="./gamethree.html">3</a>
+        </button>
+        <button class="homebtn" id="btn5" data-value="5">
+            <a href="./gamefive.html">5</a>
+        </button>
+        <button class="homebtn" id="btn7" data-value="7">
+            <a href="./gameseven.html">7</a>
+        </button>
     </div>
-    <script src="script.js"></script>
-    </body>
+</body>
 </html>
+
+

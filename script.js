@@ -1,10 +1,19 @@
 //import { JSDOM } from 'jsdom'
 
-const cells = document.querySelectorAll(".cell")
+const cells = document.querySelectorAll(".cell, .cellf, .cells")
 const statusText = document.querySelector("#statusText")
+const ruleText = document.querySelector("#ruleText")
 const restartButton = document.querySelector("#restartButton")
 
-const gameSize = 3
+document.addEventListener('DOMContentLoaded', function() {
+    const homeButton = document.getElementById('homeButton');
+    homeButton.addEventListener('click', function() {
+        localStorage.clear();
+    });
+});
+
+const value = localStorage.getItem('gameSize');
+let numValue = value
 
 function options(size) {
     const numArrays = size * size
@@ -12,9 +21,11 @@ function options(size) {
     for (let i = 0; i < numArrays; i++) {
         optionsList.push("")
     }
+    //console.log(optionsList)
     return optionsList
+   
 }
-let option = options(gameSize)
+let option = options(numValue)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 function winConditions(size) {
     const firstSet = [], secondSet = [], fourthSet = []
@@ -36,7 +47,8 @@ function winConditions(size) {
         }
     }
     const fourthCondition = numSkip(fourthSet, size)
-    const winCons= firstCondition.concat(secondCondition, thridCondition, fourthCondition)
+    const winCons= firstCondition.concat(secondCondition, /* thridCondition, */ fourthCondition)
+    console.log(winCons)
     return winCons
 }
 
@@ -162,11 +174,12 @@ function fourwinConditions(size){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 let winCondition
-if (gameSize == 3) {
-    winCondition = winConditions(gameSize)
-} else if (gameSize == 5 || gameSize == 7) {
-    winCondition = fourwinConditions(gameSize)
+if (numValue == 3) {
+    winCondition = winConditions(numValue)
+} else if (numValue == 5 || numValue == 7) {
+    winCondition = fourwinConditions(numValue)
 }
+
 let currentPlayer = "X"
 let running = false
 
@@ -204,10 +217,16 @@ function changePlayer() {
 
 function checkWinner() {
     let gameWon = false
+    let checkarr
+    if (numValue == 3) {
+        checkarr = 3
+    } else if (numValue == 5 || numValue == 7) {
+        checkarr = 4
+    }
     for (let i = 0; i < winCondition.length; i++) {
         let gameSet = []
         const condition = winCondition[i]
-        for (let i = 0; i < gameSize; i++) {
+        for (let i = 0; i < checkarr; i++) {
             gameSet.push(option[condition[i]])
         }
         if (gameSet.includes("")) {
@@ -233,7 +252,7 @@ function checkWinner() {
 
 function restartGame() {
     currentPlayer = "X"
-    option = options(gameSize)
+    option = options(numValue)
     statusText.textContent = (`${currentPlayer}'s turn`)
     cells.forEach(cell => cell.textContent = "")
     running = true

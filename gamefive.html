@@ -3,45 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/49a1e661e6.js" crossorigin="anonymous"></script>
     <title>Tic Tac Toe Game</title>
     <link rel="stylesheet" href="style.css">
+    <script>localStorage.setItem('gameSize', 5);</script>
 </head>
 <body>
     <div class="header">
-        <h1>Tic Tac Toe Game</h1>
+        <h1>Tic Tac Toe Game 5x5</h1>
     </div>
     <div id="container">
-        <div id="cellContainer">
-            <div cellIndex="0" class="cell"></div>
-            <div cellIndex="1" class="cell"></div>
-            <div cellIndex="2" class="cell"></div>
-            <div cellIndex="3" class="cell"></div>
-            <div cellIndex="4" class="cell"></div>
-            <div cellIndex="5" class="cell"></div>
-            <div cellIndex="6" class="cell"></div>
-            <div cellIndex="7" class="cell"></div>
-            <div cellIndex="8" class="cell"></div>
-            <div cellIndex="9" class="cell"></div>
-            <div cellIndex="10" class="cell"></div>
-            <div cellIndex="11" class="cell"></div>
-            <div cellIndex="12" class="cell"></div>
-            <div cellIndex="13" class="cell"></div>
-            <div cellIndex="14" class="cell"></div>
-            <div cellIndex="15" class="cell"></div>
-            <div cellIndex="16" class="cell"></div>
-            <div cellIndex="17" class="cell"></div>
-            <div cellIndex="18" class="cell"></div>
-            <div cellIndex="19" class="cell"></div>
-            <div cellIndex="20" class="cell"></div>
-            <div cellIndex="21" class="cell"></div>
-            <div cellIndex="22" class="cell"></div>
-            <div cellIndex="23" class="cell"></div>
-            <div cellIndex="24" class="cell"></div>
+        <div id="cellContainerforfive">
+            <div cellIndex="0" class="cellf"></div>
+            <div cellIndex="1" class="cellf"></div>
+            <div cellIndex="2" class="cellf"></div>
+            <div cellIndex="3" class="cellf"></div>
+            <div cellIndex="4" class="cellf"></div>
+            <div cellIndex="5" class="cellf"></div>
+            <div cellIndex="6" class="cellf"></div>
+            <div cellIndex="7" class="cellf"></div>
+            <div cellIndex="8" class="cellf"></div>
+            <div cellIndex="9" class="cellf"></div>
+            <div cellIndex="10" class="cellf"></div>
+            <div cellIndex="11" class="cellf"></div>
+            <div cellIndex="12" class="cellf"></div>
+            <div cellIndex="13" class="cellf"></div>
+            <div cellIndex="14" class="cellf"></div>
+            <div cellIndex="15" class="cellf"></div>
+            <div cellIndex="16" class="cellf"></div>
+            <div cellIndex="17" class="cellf"></div>
+            <div cellIndex="18" class="cellf"></div>
+            <div cellIndex="19" class="cellf"></div>
+            <div cellIndex="20" class="cellf"></div>
+            <div cellIndex="21" class="cellf"></div>
+            <div cellIndex="22" class="cellf"></div>
+            <div cellIndex="23" class="cellf"></div>
+            <div cellIndex="24" class="cellf"></div>
         </div>
         <h3 id="rule"></h3>
         <h2 id="statusText"></h2>
         <button id="restartButton">Restart</button>
     </div>
-    <script src="script.js"></script>
+    <div class="footer">
+        <div class="homeicon">
+            <a href="./index.html">
+                <i class="fa-solid fa-house fa-4x" id="homeButton"></i>
+            </a>
+        </div>
+    </div>
+    <script src="script.js" defer></script>
     </body>
 </html>
