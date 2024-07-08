@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 const value = localStorage.getItem('gameSize');
-let numValue = value
+let numValue = Number(value)
 
 function options(size) {
     const numArrays = size * size
@@ -47,8 +47,8 @@ function winConditions(size) {
         }
     }
     const fourthCondition = numSkip(fourthSet, size)
-    const winCons= firstCondition.concat(secondCondition, /* thridCondition, */ fourthCondition)
-    console.log(winCons)
+    const winCons = firstCondition.concat(secondCondition, thridCondition, fourthCondition)
+    //console.log(winCons)
     return winCons
 }
 
