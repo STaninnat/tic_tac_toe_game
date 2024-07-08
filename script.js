@@ -2,7 +2,6 @@
 
 const cells = document.querySelectorAll(".cell, .cellf, .cells")
 const statusText = document.querySelector("#statusText")
-const ruleText = document.querySelector("#ruleText")
 const restartButton = document.querySelector("#restartButton")
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -21,9 +20,7 @@ function options(size) {
     for (let i = 0; i < numArrays; i++) {
         optionsList.push("")
     }
-    //console.log(optionsList)
     return optionsList
-   
 }
 let option = options(numValue)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,7 +45,6 @@ function winConditions(size) {
     }
     const fourthCondition = numSkip(fourthSet, size)
     const winCons = firstCondition.concat(secondCondition, thridCondition, fourthCondition)
-    //console.log(winCons)
     return winCons
 }
 
@@ -183,6 +179,7 @@ if (numValue == 3) {
 let currentPlayer = "X"
 let running = false
 
+
 startGame()
 
 function startGame() {
@@ -215,6 +212,9 @@ function changePlayer() {
     statusText.textContent = (`${currentPlayer}'s turn`)
 }
 
+let winner = ""
+let board = option
+
 function checkWinner() {
     let gameWon = false
     let checkarr
@@ -240,14 +240,53 @@ function checkWinner() {
     }
 
     if (gameWon) {
+        winner = currentPlayer
+        saveGameHistory(winner, board)
         statusText.textContent = (`${currentPlayer} WIN!`)
         running = false;
     } else if (!option.includes("")) {
+        winner = "Draw"
+        saveGameHistory(winner, board)
         statusText.textContent = (`DRAW!`)
         running = false
     } else {
         changePlayer()
     }
+}
+
+function saveGameHistory(winner, board) {
+    let history = JSON.parse(localStorage.getItem('gameHistory')) || [];
+    
+    let gameRecord = {
+        winner: winner,
+        board: board,
+        date: new Date().toLocaleString()
+    };
+
+    history.push(gameRecord);
+    localStorage.setItem('gameHistory', JSON.stringify(history));
+}
+
+function displayGameHistory() {
+    let history = JSON.parse(localStorage.getItem('gameHistory')) || [];
+    let historyContainer = document.getElementById('historyContainer');
+
+    history.forEach((game, index) => {
+        let gameDiv = document.createElement('div');
+        gameDiv.innerHTML = `
+            <h2>เกมที่ ${index + 1}</h2>
+            <p>ผู้ชนะ: ${game.winner}</p>
+            <p>วันที่: ${game.date}</p>
+            <p>สถานะบอร์ด:</p>
+            <pre>${game.board.map(row => row.join(' ')).join('\n')}</pre>
+        `;
+        historyContainer.appendChild(gameDiv);
+    });
+}
+
+// เรียกฟังก์ชันเมื่อหน้าโหลด (ถ้าหน้าปัจจุบันคือ history.html)
+if (document.getElementById('historyContainer')) {
+    window.onload = displayGameHistory;
 }
 
 function restartGame() {

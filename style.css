@@ -12,20 +12,6 @@ body{
     font-family: "Kanit", sans-serif;
 }
 
-#container {
-    text-align: center;
-}
-
-.header h1{
-    text-align: center;
-    font-weight: 600;
-    font-size: 80px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: default;
-}
-
 .homebtnContainer {
     text-align: center;
     display: flex;
@@ -41,9 +27,35 @@ body{
     cursor: pointer;
 }
 
-.footer .homeicon {
+#container {
     text-align: center;
-    margin-top: 100px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header h1{
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+    font-size: 80px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: default;
+}
+  
+.header .homeicon {
+    position: absolute;
+    left: 50px;
+}
+  
+.header .historyicon {
+    position: absolute;
+    left: 50px;
 }
 
 .fa-solid.fa-house.fa-4x {
@@ -55,6 +67,16 @@ body{
     transform: scale(1.2);
     transition: 1s;
     opacity: .8;
+}
+
+.fa-regular.fa-window-restore.fa-4x {
+    color: black;
+    cursor: pointer;
+}
+
+.fa-regular.fa-window-restore.fa-4x:hover {
+    color: black;
+    cursor: pointer;
 }
 
 #container h2 {
