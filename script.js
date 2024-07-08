@@ -3,6 +3,7 @@
 const cells = document.querySelectorAll(".cell, .cellf, .cells")
 const statusText = document.querySelector("#statusText")
 const restartButton = document.querySelector("#restartButton")
+const historyButton = document.querySelector("#history")
 
 document.addEventListener('DOMContentLoaded', function() {
     const homeButton = document.getElementById('homeButton');
@@ -23,6 +24,7 @@ function options(size) {
     return optionsList
 }
 let option = options(numValue)
+let board = options(numValue)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 function winConditions(size) {
     const firstSet = [], secondSet = [], fourthSet = []
@@ -200,6 +202,7 @@ function cellClicked() {
 
 function updateCell(cell, index) {
     option[index] = currentPlayer //updating placeholder
+    board[index] = currentPlayer
     cell.textContent = currentPlayer
 }
 
@@ -213,7 +216,7 @@ function changePlayer() {
 }
 
 let winner = ""
-let board = option
+
 
 function checkWinner() {
     let gameWon = false
@@ -241,62 +244,41 @@ function checkWinner() {
 
     if (gameWon) {
         winner = currentPlayer
-        saveGameHistory(winner, board)
         statusText.textContent = (`${currentPlayer} WIN!`)
+        recordGameResult(winner, board)
         running = false;
     } else if (!option.includes("")) {
         winner = "Draw"
-        saveGameHistory(winner, board)
         statusText.textContent = (`DRAW!`)
+        recordGameResult(winner, board)
         running = false
     } else {
         changePlayer()
     }
 }
 
-function saveGameHistory(winner, board) {
-    let history = JSON.parse(localStorage.getItem('gameHistory')) || [];
-    
-    let gameRecord = {
+let history = []
+
+function recordGameResult(winner, board) {
+    let gameResult = {
         winner: winner,
-        board: board,
-        date: new Date().toLocaleString()
+        board: board
     };
-
-    history.push(gameRecord);
-    localStorage.setItem('gameHistory', JSON.stringify(history));
+    history.push(gameResult);
 }
-
-function displayGameHistory() {
-    let history = JSON.parse(localStorage.getItem('gameHistory')) || [];
-    let historyContainer = document.getElementById('historyContainer');
-
-    history.forEach((game, index) => {
-        let gameDiv = document.createElement('div');
-        gameDiv.innerHTML = `
-            <h2>เกมที่ ${index + 1}</h2>
-            <p>ผู้ชนะ: ${game.winner}</p>
-            <p>วันที่: ${game.date}</p>
-            <p>สถานะบอร์ด:</p>
-            <pre>${game.board.map(row => row.join(' ')).join('\n')}</pre>
-        `;
-        historyContainer.appendChild(gameDiv);
-    });
-}
-
-// เรียกฟังก์ชันเมื่อหน้าโหลด (ถ้าหน้าปัจจุบันคือ history.html)
-if (document.getElementById('historyContainer')) {
-    window.onload = displayGameHistory;
-}
+// เพื่อให้แสดงผลใน HTML สามารถใช้ DOM manipulation หรือ framework เช่น React, Vue.js ได้ตามที่คุณคิดเห็นว่าเหมาะสม
+//console.log(history)
 
 function restartGame() {
     currentPlayer = "X"
     option = options(numValue)
+    board = options(numValue)
     statusText.textContent = (`${currentPlayer}'s turn`)
     cells.forEach(cell => cell.textContent = "")
     running = true
 }
 
+historyButton.textContent = history
 
 /* module.exports = {
     options,
