@@ -10,6 +10,7 @@
 
 body{
     font-family: "Kanit", sans-serif;
+    font-weight: 400;
 }
 
 .homebtnContainer {
@@ -184,3 +185,67 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+th {
+    font-size: 40px;
+}
+
+td {
+    font-size: 30px;
+}
+
+th, td {
+    border: 5px solid #000000;
+    padding: 10px;
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    margin: 0 auto;
+}
+
+.board3 {
+    grid-template-columns: repeat(3, 1fr);
+    width: 120px;
+}
+.board5 {
+    grid-template-columns: repeat(5, 1fr);
+    width: 200px;
+}
+.board7 {
+    grid-template-columns: repeat(7, 1fr);
+    width: 280px;
+}
+
+.cellHistory {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    box-shadow: 0 0 0 2px;
+    line-height: 30px;
+    font-family: "Permanent Maker", cursive;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+
+/* table {
+    width: 80%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+} */

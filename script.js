@@ -3,7 +3,6 @@
 const cells = document.querySelectorAll(".cell, .cellf, .cells")
 const statusText = document.querySelector("#statusText")
 const restartButton = document.querySelector("#restartButton")
-const historyButton = document.querySelector("#history")
 
 document.addEventListener('DOMContentLoaded', function() {
     const homeButton = document.getElementById('homeButton');
@@ -217,7 +216,6 @@ function changePlayer() {
 
 let winner = ""
 
-
 function checkWinner() {
     let gameWon = false
     let checkarr
@@ -245,29 +243,19 @@ function checkWinner() {
     if (gameWon) {
         winner = currentPlayer
         statusText.textContent = (`${currentPlayer} WIN!`)
-        recordGameResult(winner, board)
+        /* recordGameResult(winner, board) */
+        endGameResult(winner, board)
         running = false;
     } else if (!option.includes("")) {
         winner = "Draw"
         statusText.textContent = (`DRAW!`)
-        recordGameResult(winner, board)
+        /* recordGameResult(winner, board) */
+        endGameResult(winner, board)
         running = false
     } else {
         changePlayer()
     }
 }
-
-let history = []
-
-function recordGameResult(winner, board) {
-    let gameResult = {
-        winner: winner,
-        board: board
-    };
-    history.push(gameResult);
-}
-// เพื่อให้แสดงผลใน HTML สามารถใช้ DOM manipulation หรือ framework เช่น React, Vue.js ได้ตามที่คุณคิดเห็นว่าเหมาะสม
-//console.log(history)
 
 function restartGame() {
     currentPlayer = "X"
@@ -278,7 +266,26 @@ function restartGame() {
     running = true
 }
 
-historyButton.textContent = history
+/* let history = []
+
+function recordGameResult(winner, board) {
+    let gameResult = {
+        winner: winner,
+        board: board
+    };
+    history.push(gameResult);
+} */
+
+function endGameResult(winner, board) {
+    // Get history from localStorage or initialize an empty array
+    let history = JSON.parse(localStorage.getItem('history')) || [];
+    
+    // Add the current game result to the history
+    history.push({ winner, board });
+
+    // Save updated history back to localStorage
+    localStorage.setItem('history', JSON.stringify(history));
+}
 
 /* module.exports = {
     options,

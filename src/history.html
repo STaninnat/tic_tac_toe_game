@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/49a1e661e6.js" crossorigin="anonymous"></script>
+    <title>Game History</title>
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+    <div class="header">
+        <div class="homeicon">
+            <a href="../index.html">
+                <i class="fa-solid fa-house fa-4x" id="homeButton"></i>
+            </a>
+        </div>
+        <h1>Game History</h1>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Winner</th>
+                <th>Board</th>
+            </tr>
+        </thead>
+        <tbody id="historyTable">
+            <!-- History will be populated here -->
+        </tbody>
+    </table>
+    <script>
+        // Load history from localStorage
+        let history = JSON.parse(localStorage.getItem('history')) || [];
+
+        // Get the table body element
+        let historyTable = document.getElementById('historyTable');
+
+        function getBoardClass(board) {
+            const size = Math.sqrt(board.length);
+            return `board${size}`;
+        }
+        // Populate the table with history
+        history.forEach(game => {
+            let row = document.createElement('tr');
+
+            let winnerCell = document.createElement('td');
+            winnerCell.textContent = game.winner;
+            row.appendChild(winnerCell);
+        
+            let boardCell = document.createElement('td');
+            let boardContainer = document.createElement('div');
+            boardContainer.classList.add('board', getBoardClass(game.board));
+
+            game.board.forEach(cell => {
+                let cellDiv = document.createElement('div');
+                cellDiv.classList.add('cellHistory');
+                cellDiv.textContent = cell || '';
+                boardContainer.appendChild(cellDiv);
+            });
+        
+            boardCell.appendChild(boardContainer);
+            row.appendChild(boardCell);
+        
+            historyTable.appendChild(row);
+        });
+    </script>
+</body>
+</html>
