@@ -180,7 +180,6 @@ if (numValue == 3) {
 let currentPlayer = "X"
 let running = false
 
-
 startGame()
 
 function startGame() {
@@ -280,7 +279,6 @@ function endGameResult(winner, board) {
     // Get history from localStorage or initialize an empty array
     let history = JSON.parse(localStorage.getItem('history')) || [];
     
-    // Add the current game result to the history
     history.push({ winner, board });
 
     // Save updated history back to localStorage
