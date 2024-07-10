@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/49a1e661e6.js" crossorigin="anonymous"></script>
     <title>Tic Tac Toe Game</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="header">
@@ -17,23 +17,39 @@
             <div class="select-game">
                 <a href="./src/gamethree.html">
                     <img src="./images/ttt_3.JPG" alt="Tic Tac Tor 3x3">
+                    <div class="description">3 X 3</div>
                 </a>
-                <div class="description">3 X 3</div>
             </div>
             <div class="select-game">
                 <a href="./src/gamefive.html">
                     <img src="./images/ttt_5.JPG" alt="Tic Tac Tor 5x5">
-                </a>
-                <div class="description">5 X 5</div>
+                    <div class="description">5 X 5</div>
+                </a>  
             </div>
             <div class="select-game">
                 <a href="./src/gameseven.html">
                     <img src="./images/ttt_7.JPG" alt="Tic Tac Tor 7x7">
+                    <div class="description">7 X 7</div>
                 </a>
-                <div class="description">7 X 7</div>
             </div>
         </div>
     </div>
+
+    <div class="text-container">
+        <h3>The game has 3 options</h3>    
+        <h4>⚔ The standard tic-tac-toe(3×3), 5×5 and 7×7 ⚔</h4>
+        <h2>Choose One...</h2>
+    </div>
+
+    <div class="footer">
+        <div id="้historyicon">
+            <a href="./src/history.html">
+                <i class="fa-regular fa-window-restore fa-4x" id="historyButton"></i>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
     
 </body>
 </html>

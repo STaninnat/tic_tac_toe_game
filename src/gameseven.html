@@ -78,24 +78,25 @@
 
             <div id="popupOverlay" class="popup-overlay" onclick="closePopup()"></div>
             <div id="popup" class="popup">
-                <p><b>Objective:</b> Be the first player to get 3 of your marks (X or O) in a row (horizontally,
+                <p><b>Objective:</b> Be the first player to get 4 of your marks (X or O) in a row (horizontally,
                     vertically, or diagonally).</p>
-                <p><b>Setup:</b> A 3x3 grid.</p>
+                <p><b>Setup:</b> A 7x7 grid.</p>
                 <p><b>Gameplay:</b> Two players take turns to place their mark (X or O) in an empty cell. The game
-                    continues until one player gets 3 in a row or all cells are filled.</p>
-                <p><b>Winning:</b> The first player to get 3 marks in a row wins.</p>
-                <p><b>Draw:</b> If all cells are filled and no player has 3 in a row, the game is a draw.</p>
+                    continues until one player gets 4 in a row or all cells are filled.</p>
+                <p><b>Winning:</b> The first player to get 4 marks in a row wins.</p>
+                <p><b>Draw:</b> If all cells are filled and no player has 4 in a row, the game is a draw.</p>
 
                 <button class="close-btn" onclick="closePopup()">Close</button>
+            </div>
+
+            <div class="buttons-five-seven">
+                <button id="restartButton">Restart</button>
             </div>
         </div>
     </div>
 
     <div id="middleContainer">
         <h2 id="statusText"></h2>
-        <div class="buttons">
-            <button id="restartButton">Restart</button>
-        </div>
     </div>
 
     <div class="footer">

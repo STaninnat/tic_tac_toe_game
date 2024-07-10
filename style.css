@@ -14,13 +14,6 @@ body{
     background-color: hsl(229, 90%, 3%);
 }
 
-.index-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
 .image-container {
     display: flex;
     justify-content: space-around;
@@ -38,6 +31,35 @@ body{
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+}
+
+.select-game a {
+    text-decoration: none;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+}
+
+.text-container h3 {
+    color: antiquewhite;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.text-container h4 {
+    color: antiquewhite;
+    font-size: 25px;
+    margin-top: 1px;
+}
+
+.text-container h2 {
+    color: antiquewhite;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 #container {
@@ -93,7 +115,20 @@ body{
     background-color: antiquewhite;
     font-weight: 400;
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
+    padding: 15px 50px;
+    border-radius: 50px;
+    border: 4px solid hsl(0, 0%, 0%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buttons-five-seven button {
+    text-align: center;
+    background-color: antiquewhite;
+    font-weight: 400;
+    font-size: 30px;
+    margin-top: 50px;
     padding: 15px 50px;
     border-radius: 50px;
     border: 4px solid hsl(0, 0%, 0%);
@@ -105,9 +140,13 @@ body{
     background-color: hsl(32, 84%, 88%);
 }
 
+.buttons-five-seven button:hover{
+    background-color: hsl(32, 84%, 88%);
+}
+
 .footer #้historyicon {
     position: fixed;
-    bottom: 50px;
+    bottom: 20px;
     right: 50px;
 }
 
@@ -130,7 +169,7 @@ h2 {
     color: antiquewhite;
     font-weight: 400;
     font-size: 50px;
-    margin-top: 40px;
+    margin-top: 30px;
     cursor: default;
 }
 
@@ -140,7 +179,6 @@ h3 {
     font-size: 30px;
     cursor: default;
 }
-
 
 .cell {
     color: antiquewhite;
@@ -177,7 +215,7 @@ h3 {
     border: 3px solid;
     box-shadow: 0 0 0 3px;
     line-height: 100px;
-    font-size: 90px;
+    font-size: 120px;
     cursor: crosshair;
     font-family: "Permanent Maker", cursive;
     text-align: center;
@@ -217,7 +255,7 @@ h3 {
     border: 10px solid antiquewhite;
     border-radius: 15px;
     width: 720px;
-    margin-top: 70px;
+    margin-top: 20px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -232,7 +270,7 @@ h3 {
     align-items: flex-start;
     justify-content: center;
     position: absolute;
-    right: 300px;
+    right: 100px;
 }
 
 .popup {
@@ -289,7 +327,7 @@ h3 {
 table {
     margin-top: 40px;
     border-radius: 20px;
-    width: 60%;
+    width: 70%;
     border-collapse: collapse;
     margin-bottom: 20px;
     margin-left: auto;
@@ -322,10 +360,12 @@ th, td {
     grid-template-columns: repeat(3, 1fr);
     width: 120px;
 }
+
 .board5 {
     grid-template-columns: repeat(5, 1fr);
     width: 200px;
 }
+
 .board7 {
     grid-template-columns: repeat(7, 1fr);
     width: 280px;
@@ -343,3 +383,324 @@ th, td {
     color: hsl(229, 90%, 3%);
 }
 
+@media screen and (max-width: 1300px) {
+    .select-game img {
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    #rules {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 13%;
+        right: 10px;
+    }
+
+    h3 {
+        color: antiquewhite;
+        font-weight: 400;
+        font-size: 21px;
+        cursor: default;
+    }
+
+    .buttons-five-seven button {
+        text-align: center;
+        background-color: antiquewhite;
+        font-weight: 400;
+        font-size: 25px;
+        margin-top: 50px;
+        padding: 15px 33px;
+        border-radius: 50px;
+        border: 4px solid hsl(0, 0%, 0%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .header h1{
+        color: hsl(33, 78%, 91%);
+        flex: 1;
+        text-align: center;
+        font-weight: 600;
+        font-size: 60px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: default;
+    }
+
+    .select-game img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    #rules {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        right: 10px;
+    }
+
+    .cellf {
+        color: antiquewhite;
+        width: 100px;
+        height: 100px;
+        border: 3px solid;
+        box-shadow: 0 0 0 3px;
+        line-height: 100px;
+        font-size: 90px;
+        cursor: crosshair;
+        font-family: "Permanent Maker", cursive;
+        text-align: center;
+    }
+
+    #cellContainerforfive {
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        border: 10px solid antiquewhite;
+        border-radius: 15px;
+        width: 520px;
+        margin-top: 70px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0px 0px 20px 10px antiquewhite;
+        -webkit-box-shadow: 0px 0px 20px 10px antiquewhite;
+        -moz-box-shadow: 0px 0px 20px 10px antiquewhite;
+    }
+
+    .cells {
+        color: antiquewhite;
+        width: 80px;
+        height: 80px;
+        border: 3px solid;
+        box-shadow: 0 0 0 3px;
+        line-height: 80px;
+        font-size: 60px;
+        cursor: pointer;
+        font-family: "Permanent Maker", cursive;
+        text-align: center;
+    }
+    
+    #cellContainerforseven {
+        display: grid;
+        grid-template-columns: repeat(7, auto);
+        border: 10px solid antiquewhite;
+        border-radius: 15px;
+        width: 580px;
+        margin-top: 20px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0px 0px 20px 10px antiquewhite;
+        -webkit-box-shadow: 0px 0px 20px 10px antiquewhite;
+        -moz-box-shadow: 0px 0px 20px 10px antiquewhite;
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%; 
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        padding: 20px;
+        z-index: 1001;
+        background-color: antiquewhite;
+        border: 3px solid hsl(229, 90%, 3%);
+        box-shadow: 0 5px 15px rgba(250, 235, 215, 0.35);
+        font-size: 20px;
+    }
+
+    .buttons-five-seven button {
+        text-align: center;
+        background-color: antiquewhite;
+        font-weight: 400;
+        font-size: 25px;
+        margin-top: 50px;
+        padding: 15px 22px;
+        border-radius: 50px;
+        border: 4px solid hsl(0, 0%, 0%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .header h1{
+        color: hsl(34, 78%, 91%);
+        flex: 1;
+        text-align: center;
+        font-weight: 600;
+        font-size: 50px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: default;
+    }
+
+    .image-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        justify-content: center;
+        padding: 120px 80px;
+        gap: 20px;
+    }   
+    
+    .select-game img {
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    #rules {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 10%;
+        right: 10px;
+    }
+
+    .popup-open {
+        background-color: antiquewhite;
+        border: 1px solid antiquewhite;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        margin-top: 10px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%; 
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        padding: 20px;
+        z-index: 1001;
+        background-color: antiquewhite;
+        border: 3px solid hsl(229, 90%, 3%);
+        box-shadow: 0 5px 15px rgba(250, 235, 215, 0.35);
+        font-size: 20px;
+    }
+
+    h3 {
+        color: antiquewhite;
+        font-weight: 400;
+        font-size: 21px;
+        cursor: default;
+    }
+
+    .buttons-five-seven button {
+        text-align: center;
+        background-color: antiquewhite;
+        font-weight: 400;
+        font-size: 20px;
+        margin-top: 50px;
+        padding: 10px 10px;
+        border-radius: 50px;
+        border: 4px solid hsl(0, 0%, 0%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .fa-solid.fa-house.fa-4x {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .header h1{
+        color: antiquewhite;
+        flex: 1;
+        text-align: center;
+        font-weight: 600;
+        font-size: 50px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: default;
+    }
+
+    .image-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 120px 160px;
+        margin-top: 10px;
+    }
+
+    .select-game img {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .fa-regular.fa-window-restore.fa-4x{
+        font-size: 50px;
+    }
+
+    .fa-solid.fa-house.fa-4x {
+        font-size: 40px;
+    }
+
+    .text-container h3 {
+        color: antiquewhite;
+        font-size: 25px;
+        margin-top: 11px;
+    }
+    
+    .text-container h4 {
+        color: antiquewhite;
+        font-size: 20px;
+        margin-top: 1px;
+    }
+    
+    .text-container h2 {
+        color: antiquewhite;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    #rules {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 7%;
+        right: 10px;
+    }
+
+    #rules h3, .popup-open {
+        display: none;
+    }
+
+    .buttons-five-seven button {
+        text-align: center;
+        background-color: antiquewhite;
+        font-weight: 400;
+        font-size: 10px;
+        margin-top: 50px;
+        padding: 10px 10px;
+        border-radius: 50px;
+        border: 4px solid hsl(0, 0%, 0%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+}
