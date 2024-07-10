@@ -30,17 +30,14 @@
         </tbody>
     </table>
     <script>
-        // Load history from localStorage
         let history = JSON.parse(localStorage.getItem('history')) || [];
-
-        // Get the table body element
         let historyTable = document.getElementById('historyTable');
 
         function getBoardClass(board) {
             const size = Math.sqrt(board.length);
             return `board${size}`;
         }
-        // Populate the table with history
+
         history.forEach(game => {
             let row = document.createElement('tr');
 

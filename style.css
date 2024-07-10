@@ -11,6 +11,7 @@
 body{
     font-family: "Kanit", sans-serif;
     font-weight: 400;
+    background-color: hsl(229, 90%, 3%);
 }
 
 .homebtnContainer {
@@ -20,6 +21,7 @@ body{
 }
 
 .homebtn {
+    color: aliceblue;
     width: 100px;
     height: 100px;
     text-align: center;
@@ -39,6 +41,7 @@ body{
 }
 
 .header h1{
+    color: hsl(33, 78%, 91%);
     flex: 1;
     text-align: center;
     font-weight: 600;
@@ -56,7 +59,7 @@ body{
 }
 
 .fa-solid.fa-house.fa-4x {
-    color: black;
+    color: antiquewhite;
     cursor: pointer;
 }
 
@@ -75,7 +78,7 @@ body{
 
 .buttons button {
     text-align: center;
-    background-color: hsl(0, 0%, 100%);
+    background-color: antiquewhite;
     font-weight: 400;
     font-size: 30px;
     margin-top: 30px;
@@ -88,18 +91,17 @@ body{
 }
 
 .buttons button:hover {
-    background-color: hsl(0, 0%, 55%);
+    background-color: hsl(32, 84%, 88%);
 }
 
-.buttons #้historyicon {
-    margin-top: 30px;
-    margin-bottom: 30px;
+.footer #้historyicon {
+    margin-bottom: auto;
     position: absolute;
     right: 50px;
 }
 
 .fa-regular.fa-window-restore.fa-4x {
-    color: black;
+    color: antiquewhite;
     cursor: pointer;
 }
 
@@ -110,6 +112,7 @@ body{
 }
 
 #container h2 {
+    color: antiquewhite;
     font-weight: 400;
     font-size: 50px;
     margin-top: 100px;
@@ -117,6 +120,7 @@ body{
 }
 
 #container h3 {
+    color: antiquewhite;
     font-weight: 400;
     font-size: 25px;
     margin-top: 50px;
@@ -124,9 +128,11 @@ body{
 }
 
 .cell{
+    color: antiquewhite;
     width: 150px;
     height: 150px;
     border: 3px solid;
+    border-radius: 20px;
     box-shadow: 0 0 0 3px;
     line-height: 150px;
     font-size: 100px;
@@ -145,9 +151,11 @@ body{
 }
 
 .cellf{
+    color: antiquewhite;
     width: 120px;
     height: 120px;
     border: 3px solid;
+    border-radius: 20px;
     box-shadow: 0 0 0 3px;
     line-height: 100px;
     font-size: 90px;
@@ -166,9 +174,11 @@ body{
 }
 
 .cells{
+    color: antiquewhite;
     width: 100px;
     height: 100px;
     border: 3px solid;
+    border-radius: 20px;
     box-shadow: 0 0 0 3px;
     line-height: 100px;
     font-size: 80px;
@@ -187,24 +197,28 @@ body{
 }
 
 table {
+    margin-top: 40px;
+    border-radius: 20px;
     width: 60%;
     border-collapse: collapse;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
+    background-color: antiquewhite;
 }
 
 th {
     font-size: 40px;
+    color: hsl(229, 90%, 3%);
 }
 
 td {
     font-size: 30px;
+    color: hsl(229, 90%, 3%);
 }
 
 th, td {
-    border: 5px solid #000000;
+    border: 5px solid hsl(229, 90%, 3%);
     padding: 10px;
     text-align: center;
 }
@@ -230,11 +244,11 @@ th, td {
 .cellHistory {
     width: 40px;
     height: 40px;
-    border: 2px solid black;
+    border: 2px solid hsl(229, 90%, 3%);
     box-shadow: 0 0 0 2px;
     line-height: 30px;
     font-family: "Permanent Maker", cursive;
     font-size: 30px;
     text-align: center;
-
+    color: hsl(229, 90%, 3%);
 }
