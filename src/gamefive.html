@@ -17,6 +17,7 @@
         </div>
         <h1>Tic Tac Toe Game 5x5</h1>
     </div>
+
     <div id="container">
         <div id="cellContainerforfive">
             <div cellIndex="0" class="cellf"></div>
@@ -45,7 +46,28 @@
             <div cellIndex="23" class="cellf"></div>
             <div cellIndex="24" class="cellf"></div>
         </div>
-        <h3 id="rule"></h3>
+        <div id="rules">
+            <h3 id="player1">Player 1 is X</h3>
+            <h3 id="player2">Player 2 is O</h3>
+
+            <button class="popup-open" onclick="openPopup()">Rules</button>
+
+            <div id="popupOverlay" class="popup-overlay" onclick="closePopup()"></div>
+            <div id="popup" class="popup">
+                <p><b>Objective:</b> Be the first player to get 3 of your marks (X or O) in a row (horizontally,
+                    vertically, or diagonally).</p>
+                <p><b>Setup:</b> A 3x3 grid.</p>
+                <p><b>Gameplay:</b> Two players take turns to place their mark (X or O) in an empty cell. The game
+                    continues until one player gets 3 in a row or all cells are filled.</p>
+                <p><b>Winning:</b> The first player to get 3 marks in a row wins.</p>
+                <p><b>Draw:</b> If all cells are filled and no player has 3 in a row, the game is a draw.</p>
+                
+                <button class="close-btn" onclick="closePopup()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="middleContainer">
         <h2 id="statusText"></h2>
         <div class="buttons">
             <button id="restartButton">Restart</button>
@@ -59,6 +81,7 @@
             </a>
         </div>
     </div>
+
     <script src="../script.js" drr></script>
 </body>
 </html>

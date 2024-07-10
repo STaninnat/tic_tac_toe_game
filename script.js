@@ -185,7 +185,7 @@ startGame()
 function startGame() {
     cells.forEach(cell => cell.addEventListener("click", cellClicked))
     restartButton.addEventListener("click", restartGame)
-    statusText.textContent = (`${currentPlayer}'s turn`)
+    statusText.textContent = (`Player 1's turn`)
     running = true
 }
 
@@ -205,12 +205,15 @@ function updateCell(cell, index) {
 }
 
 function changePlayer() {
+    let player
     if (currentPlayer == "X") {
         currentPlayer = "O"
+        player = "Player 2"
     } else {
         currentPlayer = "X"
+        player = "Player 1"
     }
-    statusText.textContent = (`${currentPlayer}'s turn`)
+    statusText.textContent = (`${player}'s turn`)
 }
 
 let winner = ""
@@ -240,13 +243,18 @@ function checkWinner() {
     }
 
     if (gameWon) {
-        winner = currentPlayer
-        statusText.textContent = (`${currentPlayer} WIN!`)
+        let winner
+        if (currentPlayer == "X") {
+            winner = "PLAYER 1"
+        } else if (currentPlayer == "O") {
+            winner = "PLAYER 2"
+        }
+        statusText.textContent = (`${winner} WIN!`)
         /* recordGameResult(winner, board) */
         endGameResult(winner, board)
         running = false;
     } else if (!option.includes("")) {
-        winner = "Draw"
+        winner = "DRAW!"
         statusText.textContent = (`DRAW!`)
         /* recordGameResult(winner, board) */
         endGameResult(winner, board)
@@ -260,7 +268,7 @@ function restartGame() {
     currentPlayer = "X"
     option = options(numValue)
     board = options(numValue)
-    statusText.textContent = (`${currentPlayer}'s turn`)
+    statusText.textContent = (`Player 1's turn`)
     cells.forEach(cell => cell.textContent = "")
     running = true
 }
@@ -284,6 +292,20 @@ function endGameResult(winner, board) {
     // Save updated history back to localStorage
     localStorage.setItem('history', JSON.stringify(history));
 }
+
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("popupOverlay").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("popupOverlay").style.display = "none";
+}
+
+document.getElementById("popup").addEventListener("click", function (event) {
+    event.stopPropagation();
+});
 
 /* module.exports = {
     options,
