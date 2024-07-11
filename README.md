@@ -39,13 +39,17 @@ When the game ends with a winner or a draw. You can press the **Restart** button
     **Reset button:** For restarting the game.
 
 2. **Data structure and algorithm design**
-    * The game board is stored in a two-dimensional array and provides various functions in the game operation, such as updating the board. winner verification and resetting the board.
+
+    The game board is stored in a two-dimensional array and provides various functions in the game operation, such as updating the board. winner verification and resetting the board.
 
 3. **Testing and improvements**
-    * After you write the code The game should be tested to make sure it works correctly and that there are no bugs. The game should be played several times to make sure that winner verification and game reset work properly.
+
+    After you write the code The game should be tested to make sure it works correctly and that there are no bugs. The game should be played several times to make sure that winner verification and game reset work properly.
 
 4. Adding features
+
     After the basic game works. You may want to add features such as:
+
     * Save play history
     * Added AI for playing against the computer.
     * Improved the UI to make it more beautiful and easier to use.
@@ -54,29 +58,35 @@ When the game ends with a winner or a draw. You can press the **Restart** button
 ## 💻 Algorithm
 
 1. **Board setup**
-    * Tic-Tac-Toe game board is stored in the form of 3x3, 5x5, and 7x7 two-dimensional arrays.
 
-    * Example of 3x3: ``` let board = [['', '', ''], ['', '', ''], ['', '', '']]; ```
+    Tic-Tac-Toe game board is stored in the form of 3x3, 5x5, and 7x7 two-dimensional arrays.
+
+    > Example of 3x3: ``` let board = [['', '', ''], ['', '', ''], ['', '', '']]; ```
 
 2. **How the game works**
-    * **Start the game:** Set the first player to be X and the next to be O.
 
-    * **Receive input from the player:** The player chooses where to insert the symbol. The position must be vacant.
+    **Start the game:** Set the first player to be X and the next to be O.
 
-    * **Update board:** Place symbols in selected positions.
+    **Receive input from the player:** The player chooses where to insert the symbol. The position must be vacant.
 
-    * **Verify Wins:** After each turn played. Check if any players win or not.
+    **Update board:** Place symbols in selected positions.
 
-    * **Switch Players:** Change players for the next turn.
+    **Verify Wins:** After each turn played. Check if any players win or not.
+
+    **Switch Players:** Change players for the next turn.
 
 3. **Winning Verification**
-    * Winning verification is done by checking every row, column and diagonal according to the selected game size.
+
+    Winning verification is done by checking every row, column and diagonal according to the selected game size.
 
 4. **Checking draw results**
-    * If there are no vacancies on the board and there is still no winner, the game is a draw.
+
+    If there are no vacancies on the board and there is still no winner, the game is a draw.
 
 5. **Keep playing history**
-    * When the results are received, whether the player wins or draws. It will be stored in localStorage named history.
+
+    When the results are received, whether the player wins or draws. It will be stored in localStorage named history.
 
 6. **Resetting the game**
-    * After the game ends (there is a winner or a draw), the board must be reset to start a new game.
+
+    After the game ends (there is a winner or a draw), the board must be reset to start a new game.
