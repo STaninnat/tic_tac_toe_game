@@ -49,7 +49,6 @@ When the game ends with a winner or a draw. You can press the **Restart** button
 4. Adding features
 
     After the basic game works. You may want to add features such as:
-
     * Save play history
     * Added AI for playing against the computer.
     * Improved the UI to make it more beautiful and easier to use.
