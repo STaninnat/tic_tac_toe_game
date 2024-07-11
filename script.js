@@ -24,7 +24,7 @@ function options(size) {
 }
 let option = options(numValue)
 let board = options(numValue)
-///////////////////////////////////////////////////////////////////////////////////////////////////
+
 function winConditions(size) {
     const firstSet = [], secondSet = [], fourthSet = []
     const lengthArray = size * size
@@ -65,7 +65,7 @@ const numSlice = (array, chunkSize) => {
     }
     return numList
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function fourwinConditions(size){
     const winCond = 4
     const tableSize = size * size
@@ -169,7 +169,6 @@ function fourwinConditions(size){
     return fourwinCondition
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
 let winCondition
 if (numValue == 3) {
     winCondition = winConditions(numValue)
@@ -287,15 +286,15 @@ function endGameResult(winner, board) {
     // Get history from localStorage or initialize an empty array
     let history = JSON.parse(localStorage.getItem('history')) || [];
     
-    history.push({ winner, board });
+    history.push({ winner, board })
 
     // Save updated history back to localStorage
-    localStorage.setItem('history', JSON.stringify(history));
+    localStorage.setItem('history', JSON.stringify(history))
 }
 
 function openPopup() {
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("popupOverlay").style.display = "block";
+    document.getElementById("popup").style.display = "block"
+    document.getElementById("popupOverlay").style.display = "block"
 }
 
 function closePopup() {
@@ -305,7 +304,7 @@ function closePopup() {
 
 document.getElementById("popup").addEventListener("click", function (event) {
     event.stopPropagation();
-});
+})
 
 /* module.exports = {
     options,
